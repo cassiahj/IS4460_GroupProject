@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <h2>Team Edit:</h2>
+    
+    <br>
+   <form method="post">
+   
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Update">
+   </form>
+<br>
+<br>
+   <a href="/athletics/list/">Cancel and return to Team List</a>
+</body>
+
+</html>

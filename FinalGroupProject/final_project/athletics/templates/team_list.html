@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Team List</h1>
+
+
+<u>
+
+    {% for team in teams%}
+    <a href="/athletics/details/{{ team.team_id }}/">{{team.team_name}}</a>
+    
+    <br>
+    {%endfor%}
+</u>
+
+</body>
+</html>

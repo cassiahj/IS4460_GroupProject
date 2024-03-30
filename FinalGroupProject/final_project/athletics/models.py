@@ -1,10 +1,15 @@
 from django.db import models
 
-# Create your models here.
 class Team(models.Model):
-    team_id= models.IntegerField()
-    team_name=models.CharField()
-    established_date=models.DateField()
+    team_id = models.AutoField(primary_key=True)
+    team_name = models.CharField(max_length=100)
+    type = models.CharField(max_length = 50)
+    email = models.CharField(max_length = 50)
+    established_date = models.DateField()
+
+    def __str__(self):
+        return self.team_name
+
 
 class Employee(models.Model):
     employee_id=models.IntegerField()
