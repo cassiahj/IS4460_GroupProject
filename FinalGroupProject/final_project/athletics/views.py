@@ -5,8 +5,14 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from rest_framework import generics
-from .models import Team, Athlete
-from .forms import TeamForm, TeamCreateForm, TeamDeleteForm
+from .models import Team, Athlete, Employee
+from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm
+
+
+class Home(View):
+    def get(self, request):
+        
+        return render(request=request, template_name='home.html', context={})
 
 class TeamList(View):
 
@@ -33,13 +39,6 @@ class TeamAdd(View):
             form.save()
             return redirect('team-list')
         return render(request=request, template_name='team_add', context={'form': form})
-
-
-class Home(View):
-    def get(self, request):
-        
-        return render(request=request, template_name='home.html', context={})
-
 
 class TeamEdit(View):
     def get(self,request,team_id):
@@ -79,9 +78,7 @@ class TeamDelete(View):
         team = Team.objects.get(pk = team_id)
         team.delete()
         return redirect('team-list')
-    
-
-   
+     
 class TeamDetails(View):
     def get(self, request, team_id):
         team = Team.objects.get(pk=team_id)
@@ -90,3 +87,73 @@ class TeamDetails(View):
         return render(request=request, template_name='team_details.html', context={'team': team, 'fields': fields})
 
 
+class EmployeeList(View):
+
+    def get(self, request):
+
+        employees = Employee.objects.all()
+
+        return render(request=request,
+                      template_name='employee_list.html',
+                      context={'employees': employees})
+class EmployeeAdd(View):
+
+    def get(self, request):
+        form = EmployeeForm()
+        return render(request=request, template_name='employee_add.html', context={'form': form})
+
+    def post(self, request):
+        form = EmployeeForm(request.POST, request.FILES)
+        if form.is_valid():
+
+            form.save()
+            return redirect('employee-list')
+        return render(request=request, template_name='employee_add.html', context={'form': form})
+
+class EmployeeEdit(View):
+    def get(self, request, employee_id):
+
+        employee = Employee.objects.get(pk=employee_id)
+        form = EmployeeForm(instance=employee)
+
+        return render(request=request,
+                      template_name='employee_edit.html',
+                      context={'employee': employee, 'form': form})
+
+    def post(self, request, employee_id):
+
+        employee = Employee.objects.get(pk=employee_id)
+        form = EmployeeForm(request.POST, request.FILES, instance=employee)
+
+        if form.is_valid():
+
+            employee = form.save()
+            return redirect('employee-list')
+
+        return render(request=request,
+                      template_name='employee_edit.html',
+                      context={'employee': employee, 'form': form})
+
+class EmployeeDelete(View):
+    def get(self, request, employee_id):
+        employee = Employee.objects.get(pk=employee_id)
+        form = EmployeeDeleteForm(instance=employee)
+
+        return render(request=request,
+                      template_name='employee_delete.html',
+                      context={'employee': employee, 'form': form})
+
+    def post(self, request, employee_id):
+        employee = Employee.objects.get(pk=employee_id)
+        employee.delete()
+        return redirect('employee-list')
+
+
+class EmployeeDetails(View):
+    def get(self, request, employee_id):
+        employee = Employee.objects.get(pk=employee_id)
+        fields = employee._meta.get_fields()
+
+        return render(request=request,
+                      template_name='employee_details.html',
+                      context={'employee': employee, 'fields': fields})

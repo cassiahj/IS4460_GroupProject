@@ -8,11 +8,16 @@
 <u>
 
     {% for team in teams%}
-    <a href="/athletics/details/{{ team.team_id }}/">{{team.team_name}}</a>
+    <a href="/athletics/team/details/{{ team.team_id }}/">{{team.team_name}}</a>
     
     <br>
     {%endfor%}
 </u>
+<br>
+<a href="/athletics/team/add/">Add Team</a><br>
+<br>
+<a href="/athletics/home/">Return Home</a><br>
+
 
 </body>
 </html>

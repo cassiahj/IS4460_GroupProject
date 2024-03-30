@@ -12,16 +12,18 @@ class Team(models.Model):
 
 
 class Employee(models.Model):
-    employee_id=models.IntegerField()
-    last_name=models.CharField(max_length=255)
+    employee_id=models.AutoField(primary_key=True)
     first_name=models.CharField(max_length=255)
+    last_name=models.CharField(max_length=255)
     title=models.CharField(max_length=255)
     start_date=models.DateField()
-    end_date=models.DateField()
+    end_date = models.DateField(null=True, blank=True)
     salary=models.IntegerField()
     administrator=models.BooleanField()
     user_id=models.CharField(max_length=255)
     password=models.CharField(max_length=255)
+
+    
 
 class Athlete(models.Model):
     athlete_id=models.IntegerField()

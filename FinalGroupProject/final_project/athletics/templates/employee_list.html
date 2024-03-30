@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Employee List</h1>
+
+
+<u>
+
+    {% for employee in employees%}
+    <a href="/athletics/employee/details/{{ employee.employee_id }}/">{{employee.first_name}} {{employee.last_name}}</a>
+    
+    <br>
+    {%endfor%}
+</u>
+<br>
+<a href="/athletics/employee/add/">Add Employee</a><br>
+
+<br>
+<a href="/athletics/home/">Return Home</a><br>
+</body>
+</html>
