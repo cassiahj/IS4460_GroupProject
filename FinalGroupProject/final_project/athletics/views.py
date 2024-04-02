@@ -157,3 +157,7 @@ class EmployeeDetails(View):
         return render(request=request,
                       template_name='employee_details.html',
                       context={'employee': employee, 'fields': fields})
+    
+
+
+    
