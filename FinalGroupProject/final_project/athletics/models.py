@@ -102,7 +102,7 @@ class Income(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     type = models.CharField(max_length=15, choices=income_type_choices)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date_recorded = models.DateField
+    date_recorded = models.DateField()
 
 class Equipment(models.Model):
     equipment_id=models.AutoField(primary_key=True)
