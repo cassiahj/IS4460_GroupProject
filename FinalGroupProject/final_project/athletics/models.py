@@ -76,11 +76,11 @@ class Income(models.Model):
     amount=models.DateField()
 
 class Equipment(models.Model):
-    equipment_id=models.IntegerField()
-    team_id=models.IntegerField()
-    type=models.TextField()
+    equipment_id=models.AutoField(primary_key=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    type=models.CharField(max_length=255) #should this be a multiple choice? 
     annual_cost=models.IntegerField()
-    year=models.DateField()
+    date_purchased=models.DateField()
 
 class Event(models.Model):
     event_id = models.AutoField(primary_key=True)

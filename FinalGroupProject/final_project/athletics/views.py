@@ -16,8 +16,8 @@ from django.views.generic import CreateView, ListView, DeleteView, DetailView, U
 from django.urls import reverse_lazy
 
 
-from .models import Team, Athlete, Employee
-from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm
+from .models import Team, Athlete, Employee, Event, Equipment
+from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm, EquipmentForm
 
 
 class Home(View):
@@ -195,12 +195,6 @@ class AthleteEdit(UpdateView):
     template_name = 'athlete_edit.html'
     success_url = reverse_lazy('athlete-list')
 
-
-from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
-from django.urls import reverse_lazy
-from .models import Event
-from .forms import EventForm
-
 class EventAdd(CreateView):
     model = Event
     form_class = EventForm
@@ -226,3 +220,30 @@ class EventEdit(UpdateView):
     form_class = EventForm
     template_name = 'event_edit.html'
     success_url = reverse_lazy('event-list')
+    
+
+class EquipmentAdd(CreateView):
+    model = Equipment
+    form_class = EquipmentForm
+    template_name = 'equipment_add.html'
+    success_url = '/athletics/equipment/list/'
+
+class EquipmentList(ListView):
+    model = Equipment
+    template_name = 'equipment_list.html'
+    context_object_name = 'equipment'
+
+class EquipmentDelete(DeleteView):
+    model = Equipment
+    success_url = reverse_lazy('equipment-list')
+    template_name = 'equipment_delete.html'
+
+class EquipmentDetails(DetailView):
+    model = Equipment
+    template_name = 'equipment_details.html'
+
+class EquipmentEdit(UpdateView):
+    model = Equipment
+    form_class = EquipmentForm
+    template_name = 'equipment_edit.html'
+    success_url = reverse_lazy('equipment-list')

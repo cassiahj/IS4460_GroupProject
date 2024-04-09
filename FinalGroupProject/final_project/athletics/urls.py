@@ -29,4 +29,11 @@ urlpatterns = [
     path('event/edit/<int:pk>/', views.EventEdit.as_view(), name='event-edit'),
     path('event/delete/<int:pk>/', views.EventDelete.as_view(), name='event-delete'),
     path('event/details/<int:pk>/', views.EventDetails.as_view(), name='event-details'),
+
+    path('equipment/list/', views.EquipmentList.as_view(), name='equipment-list'),
+    path('equipment/add/', views.EquipmentAdd.as_view(), name='equipment-add'),
+    path('equipment/edit/<int:pk>/', views.EquipmentEdit.as_view(), name='equipment-edit'),
+    path('equipment/delete/<int:pk>/', views.EquipmentDelete.as_view(), name='equipment-delete'),
+    path('equipment/details/<int:pk>/', views.EquipmentDetails.as_view(), name='equipment-details'),
+
 ]

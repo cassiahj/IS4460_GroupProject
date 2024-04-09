@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equipment List</title>
+</head>
+<body>
+    <h1>Equipment List</h1>
+    <ul>
+        {% for equipment in equipment %}
+            <li><a href="{% url 'equipment-details' equipment.pk %}">{{ equipment.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/athletics/equipment/add/">Add Equipment</a><br>
+    <br>
+    <a href="/athletics/home/">Return Home</a><br>
+</body>
+</html>

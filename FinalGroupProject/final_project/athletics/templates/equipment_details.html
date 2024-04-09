@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equipment Details</title>
+</head>
+<body>
+    <h1>{{ object.name }}</h1>
+    <p>Description: {{ object.description }}</p>
+    <!-- Add more details as needed -->
+    <br>
+    <a href="/athletics/equipment/edit/{{ object.pk }}/">Edit Equipment</a><br>
+    <a href="/athletics/equipment/delete/{{ object.pk }}/">Delete Equipment</a><br>
+    <a href="/athletics/equipment/list/">Return to Equipment List</a><br>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Equipment</title>
+</head>
+<body>
+    <h1>Delete Equipment</h1>
+    <p>Are you sure you want to delete {{ object.name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <br>
+    <a href="/athletics/equipment/list/">Cancel and return to Equipment List</a>
+</body>
+</html>
