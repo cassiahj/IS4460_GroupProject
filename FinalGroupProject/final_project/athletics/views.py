@@ -16,8 +16,8 @@ from django.views.generic import CreateView, ListView, DeleteView, DetailView, U
 from django.urls import reverse_lazy
 
 
-from .models import Team, Athlete, Employee, Event, Equipment
-from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm, EquipmentForm
+from .models import Team, Athlete, Employee, Event, Equipment, Scholarship, Income
+from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm, EquipmentForm, ScholarshipForm, IncomeForm
 
 
 class Home(View):
@@ -35,21 +35,26 @@ class TeamList(View):
                       template_name = 'team_list.html',
                       context = {'teams':teams})
     
-class TeamAdd(View):
+class TeamAdd(CreateView):
+
+    model = Team
+    form_class = TeamForm
+    template_name = 'team_add.html'
+    success_url = '/athletics/team/list/'
 
     
 
-    def get(self, request):
-        form = TeamCreateForm()
-        return render(request=request, template_name='team_add.html', context={'form': form})
+    # def get(self, request):
+    #     form = TeamCreateForm()
+    #     return render(request=request, template_name='team_add.html', context={'form': form})
 
-    def post(self, request):
-        form = TeamCreateForm(request.POST, request.FILES)
-        if form.is_valid():
+    # def post(self, request):
+    #     form = TeamCreateForm(request.POST, request.FILES)
+    #     if form.is_valid():
 
-            form.save()
-            return redirect('team-list')
-        return render(request=request, template_name='team_add', context={'form': form})
+    #         form.save()
+    #         return redirect('team-list')
+    #     return render(request=request, template_name='team_add', context={'form': form})
 
 class TeamEdit(View):
     def get(self,request,team_id):
@@ -247,3 +252,60 @@ class EquipmentEdit(UpdateView):
     form_class = EquipmentForm
     template_name = 'equipment_edit.html'
     success_url = reverse_lazy('equipment-list')
+
+
+
+class ScholarshipAdd(CreateView):
+    model = Scholarship
+    form_class = ScholarshipForm
+    template_name = 'scholarship_add.html'
+    success_url = '/athletics/scholarship/list/'
+
+class ScholarshipList(ListView):
+    model = Scholarship
+    template_name = 'scholarship_list.html'
+    context_object_name = 'scholarships'
+
+class ScholarshipDelete(DeleteView):
+    model = Scholarship
+    success_url = reverse_lazy('scholarship-list')
+    template_name = 'scholarship_delete.html'
+
+class ScholarshipDetails(DetailView):
+    model = Scholarship
+    template_name = 'scholarship_details.html'
+
+class ScholarshipEdit(UpdateView):
+    model = Scholarship
+    form_class = ScholarshipForm
+    template_name = 'scholarship_edit.html'
+    success_url = reverse_lazy('scholarship-list')
+
+
+
+class IncomeAdd(CreateView):
+    model = Income
+    form_class = IncomeForm
+    template_name = 'income_add.html'
+    success_url = '/athletics/income/list/'
+
+class IncomeList(ListView):
+    model = Income
+    template_name = 'income_list.html'
+    context_object_name = 'incomes'
+
+class IncomeDelete(DeleteView):
+    model = Income
+    success_url = reverse_lazy('income-list')
+    template_name = 'income_delete.html'
+
+class IncomeDetails(DetailView):
+    model = Income
+    template_name = 'income_details.html'
+
+class IncomeEdit(UpdateView):
+    model = Income
+    form_class = IncomeForm
+    template_name = 'income_edit.html'
+    success_url = reverse_lazy('income-list')
+

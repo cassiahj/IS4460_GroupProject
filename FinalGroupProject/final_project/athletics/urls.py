@@ -36,4 +36,16 @@ urlpatterns = [
     path('equipment/delete/<int:pk>/', views.EquipmentDelete.as_view(), name='equipment-delete'),
     path('equipment/details/<int:pk>/', views.EquipmentDetails.as_view(), name='equipment-details'),
 
+    path('scholarship/list/', views.ScholarshipList.as_view(), name='scholarship-list'),
+    path('scholarship/add/', views.ScholarshipAdd.as_view(), name='scholarship-add'),
+    path('scholarship/edit/<int:pk>/', views.ScholarshipEdit.as_view(), name='scholarship-edit'),
+    path('scholarship/delete/<int:pk>/', views.ScholarshipDelete.as_view(), name='scholarship-delete'),
+    path('scholarship/details/<int:pk>/', views.ScholarshipDetails.as_view(), name='scholarship-details'),
+
+    path('income/list/', views.IncomeList.as_view(), name='income-list'),
+    path('income/add/', views.IncomeAdd.as_view(), name='income-add'),
+    path('income/edit/<int:pk>/', views.IncomeEdit.as_view(), name='income-edit'),
+    path('income/delete/<int:pk>/', views.IncomeDelete.as_view(), name='income-delete'),
+    path('income/details/<int:pk>/', views.IncomeDetails.as_view(), name='income-details'),
+
 ]

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Income</title>
+</head>
+<body>
+    <h1>Edit Income</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <br>
+    <a href="/athletics/income/list/">Cancel and return to Income List</a>
+</body>
+</html>

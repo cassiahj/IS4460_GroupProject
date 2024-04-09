@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scholarship Details</title>
+</head>
+<body>
+    <h1>Scholarship awarded to {{ object.athlete }}</h1>
+    <h4>Amount: {{ object.amount }}</h4>
+    <h4>Type: {{ object.get_type_display }}</h4>
+    <h4>Donor: {{ object.donor }}</h4>
+    <h4>Date Awarded: {{ object.date_awarded }}</h4>
+
+    <br>
+    <a href="/athletics/scholarship/edit/{{ object.pk }}/">Edit Scholarship</a><br>
+    <a href="/athletics/scholarship/delete/{{ object.pk }}/">Delete Scholarship</a><br>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Income List</title>
+</head>
+<body>
+    <h1>Income List</h1>
+    <ul>
+        {% for income in incomes %}
+            <li><a href="{% url 'income-details' income.pk %}">{{ income.team }} - ${{income.amount}}</a></li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/athletics/income/add/">Add Income</a><br>
+    <a href="/athletics/home/">Return Home</a><br>
+</body>
+</html>

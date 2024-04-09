@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Scholarship</title>
+</head>
+<body>
+    <h1>Edit Scholarship</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <br>
+    <a href="/athletics/scholarship/list/">Cancel and return to Scholarship List</a>
+</body>
+</html>

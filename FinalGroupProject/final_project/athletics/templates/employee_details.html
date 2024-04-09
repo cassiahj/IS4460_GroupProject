@@ -4,16 +4,21 @@
 
     <h2>{{employee.first_name}} {{employee.last_name}}<br></h2>
 
-info
-<br>
-<br>
+    <h3>Teams:</h3>
+    <ul>
+        {% for team in employee.teams.all %}
+            <li>{{ team.team_name }}</li>
+        {% empty %}
+            <li>No teams associated</li>
+        {% endfor %}
+    </ul>
 
-<a href="/athletics/employee/edit/{{ employee.employee_id }}/">Edit Employee</a><br>
-<a href="/athletics/employee/delete/{{ employee.employee_id }}/">Delete Employee</a><br>
-<a href="/athletics/employee/list/">Return to Employee List</a><br>
+    <br>
+    <br>
 
-
-
+    <a href="/athletics/employee/edit/{{ employee.employee_id }}/">Edit Employee</a><br>
+    <a href="/athletics/employee/delete/{{ employee.employee_id }}/">Delete Employee</a><br>
+    <a href="/athletics/employee/list/">Return to Employee List</a><br>
 
 </body>
 </html>

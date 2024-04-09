@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scholarship List</title>
+</head>
+<body>
+    <h1>Scholarship List</h1>
+    <ul>
+        {% for scholarship in scholarships %}
+            <li><a href="{% url 'scholarship-details' scholarship.pk %}">{{ scholarship.athlete }} - ${{scholarship.amount}}</a></li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/athletics/scholarship/add/">Add Scholarship</a><br>
+    <a href="/athletics/home/">Return Home</a><br>
+</body>
+</html>

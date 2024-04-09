@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Delete Event</title>
+    <title>Delete Scholarship</title>
 </head>
 <body>
-    <h1>Delete Event</h1>
+    <h1>Delete Scholarship</h1>
     <p>Are you sure you want to delete {{ object.name }}?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Delete</button>
     </form>
-
     <br>
-    <a href="{% url 'event-list' %}">Cancel and return to Event List</a>
+    <a href="/athletics/scholarship/list/">Cancel and return to Scholarship List</a>
 </body>
 </html>

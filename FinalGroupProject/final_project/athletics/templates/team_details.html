@@ -2,20 +2,32 @@
 <html>
 <body>
 
-    <h2>{{team.team_name}}<br></h2>
+    <h2>{{ team.team_name }}</h2>
 
-Team ID: {{team.team_id}}<br>
-Type: {{team.type}}<br>
-Email: {{team.email}}<br>
-Date Established: {{team.established_date}}<br>
-<br>
+    Team ID: {{ team.team_id }}<br>
+    Type: {{ team.type }}<br>
+    Email: {{ team.email }}<br>
+    Date Established: {{ team.established_date }}<br>
+    <br>
 
-<a href="/athletics/team/edit/{{ team.team_id }}/">Edit Team</a><br>
-<a href="/athletics/team/delete/{{ team.team_id }}/">Delete Team</a><br>
-<a href="/athletics/team/list/">Return to Team List</a><br>
+    <h3>Employees:</h3>
+    <ul>
+        {% for employee in team.employees_associated.all %}
+            <li>{{ employee.first_name }} {{ employee.last_name }} - {{ employee.title }}</li>
+        {% endfor %}
+    </ul>
 
+    <h3>Athletes:</h3>
+    <ul>
+        {% for athlete in team.athletes.all %}
+            <li>{{ athlete.first_name }} {{ athlete.last_name }} - {{ athlete.position }}</li>
+        {% endfor %}
+    </ul>
 
-
+    <br>
+    <a href="/athletics/team/edit/{{ team.team_id }}/">Edit Team</a><br>
+    <a href="/athletics/team/delete/{{ team.team_id }}/">Delete Team</a><br>
+    <a href="/athletics/team/list/">Return to Team List</a><br>
 
 </body>
 </html>
