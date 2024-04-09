@@ -1,5 +1,5 @@
 from django import forms
-from athletics.models import Team,Employee, Athlete
+from athletics.models import Team,Employee, Athlete, Event
 from datetime import date
 
 class TeamCreateForm(forms.ModelForm):
@@ -47,16 +47,19 @@ class AthleteForm(forms.ModelForm):
         model = Athlete
         fields = '__all__'
         
-        widgets = {
-            'start_date': forms.DateInput(attrs={'type': 'date'}),
-            'end_date': forms.DateInput(attrs={'type': 'date'}),
-        }
-
+        
 class AthleteDeleteForm(forms.ModelForm):
     class Meta:
         model = Athlete
         fields = ('id', 'first_name', 'last_name',)
 
 
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = '__all__'
 
-
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+        }
+        

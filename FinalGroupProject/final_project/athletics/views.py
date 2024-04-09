@@ -6,20 +6,18 @@ from django.urls import reverse
 from django.views import View
 from rest_framework import generics
 from django.views import generic
-from django.views.generic.edit import DeleteView
-from django.views.generic import DetailView
+from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
 
-from django.urls import reverse_lazy
-from .models import Athlete
-
-from django.views.generic.edit import CreateView
-from django.views.generic import ListView
-from django.views.generic.edit import UpdateView
+# from django.views.generic.edit import DeleteView
+# from django.views.generic import DetailView
+# from django.views.generic.edit import CreateView
+# from django.views.generic import ListView
+# from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 
 
 from .models import Team, Athlete, Employee
-from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm
+from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm
 
 
 class Home(View):
@@ -196,3 +194,35 @@ class AthleteEdit(UpdateView):
     form_class = AthleteForm
     template_name = 'athlete_edit.html'
     success_url = reverse_lazy('athlete-list')
+
+
+from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
+from django.urls import reverse_lazy
+from .models import Event
+from .forms import EventForm
+
+class EventAdd(CreateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'event_add.html'
+    success_url = '/athletics/event/list/'
+
+class EventList(ListView):
+    model = Event
+    template_name = 'event_list.html'
+    context_object_name = 'events'
+
+class EventDelete(DeleteView):
+    model = Event
+    success_url = reverse_lazy('event-list')
+    template_name = 'event_delete.html'
+
+class EventDetails(DetailView):
+    model = Event
+    template_name = 'event_details.html'
+
+class EventEdit(UpdateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'event_edit.html'
+    success_url = reverse_lazy('event-list')

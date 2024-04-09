@@ -83,11 +83,9 @@ class Equipment(models.Model):
     year=models.DateField()
 
 class Event(models.Model):
-    event_id=models.IntegerField()
-    team_id=models.IntegerField()
-    date=models.DateField()
-    income=models.IntegerField()
-    expenses=models.IntegerField()
-    opponent=models.CharField(max_length=255)
-
-    
+    event_id = models.AutoField(primary_key=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    income = models.IntegerField()
+    date = models.DateField()
+    expenses = models.IntegerField()
+    opponent = models.CharField(max_length=255)

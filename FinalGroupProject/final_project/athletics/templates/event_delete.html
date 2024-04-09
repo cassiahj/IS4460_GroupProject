@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Event</title>
+</head>
+<body>
+    <h1>Delete Event</h1>
+    <p>Are you sure you want to delete {{ object.event_id }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+
+    <br>
+    <a href="{% url 'event-list' %}">Cancel and return to Event List</a>
+</body>
+</html>

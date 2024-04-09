@@ -23,4 +23,10 @@ urlpatterns = [
     path('athlete/edit/<int:pk>/', views.AthleteEdit.as_view(), name='athlete-edit'),
     path('athlete/delete/<int:pk>/', views.AthleteDelete.as_view(), name='athlete-delete'),
     path('athlete/details/<int:pk>/', views.AthleteDetails.as_view(), name='athlete-details'),
+
+    path('event/list/', views.EventList.as_view(), name='event-list'),
+    path('event/add/', views.EventAdd.as_view(), name='event-add'),
+    path('event/edit/<int:pk>/', views.EventEdit.as_view(), name='event-edit'),
+    path('event/delete/<int:pk>/', views.EventDelete.as_view(), name='event-delete'),
+    path('event/details/<int:pk>/', views.EventDetails.as_view(), name='event-details'),
 ]
