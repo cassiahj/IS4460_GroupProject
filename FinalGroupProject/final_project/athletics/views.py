@@ -5,8 +5,21 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from rest_framework import generics
+from django.views import generic
+from django.views.generic.edit import DeleteView
+from django.views.generic import DetailView
+
+from django.urls import reverse_lazy
+from .models import Athlete
+
+from django.views.generic.edit import CreateView
+from django.views.generic import ListView
+from django.views.generic.edit import UpdateView
+from django.urls import reverse_lazy
+
+
 from .models import Team, Athlete, Employee
-from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm
+from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm
 
 
 class Home(View):
@@ -86,7 +99,6 @@ class TeamDetails(View):
 
         return render(request=request, template_name='team_details.html', context={'team': team, 'fields': fields})
 
-
 class EmployeeList(View):
 
     def get(self, request):
@@ -96,6 +108,7 @@ class EmployeeList(View):
         return render(request=request,
                       template_name='employee_list.html',
                       context={'employees': employees})
+    
 class EmployeeAdd(View):
 
     def get(self, request):
@@ -148,7 +161,6 @@ class EmployeeDelete(View):
         employee.delete()
         return redirect('employee-list')
 
-
 class EmployeeDetails(View):
     def get(self, request, employee_id):
         employee = Employee.objects.get(pk=employee_id)
@@ -158,6 +170,29 @@ class EmployeeDetails(View):
                       template_name='employee_details.html',
                       context={'employee': employee, 'fields': fields})
     
+class AthleteAdd(CreateView):
+    model = Athlete
+    form_class = AthleteForm
+    template_name = 'athlete_add.html'
+    success_url = '/athletics/athlete/list/'
 
 
-    
+class AthleteList(ListView):
+    model = Athlete
+    template_name = 'athlete_list.html'
+    context_object_name = 'athletes'
+
+class AthleteDelete(DeleteView):
+    model = Athlete
+    success_url = reverse_lazy('athlete-list')
+    template_name = 'athlete_delete.html'
+
+class AthleteDetails(DetailView):
+    model = Athlete
+    template_name = 'athlete_details.html'
+
+class AthleteEdit(UpdateView):
+    model = Athlete
+    form_class = AthleteForm
+    template_name = 'athlete_edit.html'
+    success_url = reverse_lazy('athlete-list')

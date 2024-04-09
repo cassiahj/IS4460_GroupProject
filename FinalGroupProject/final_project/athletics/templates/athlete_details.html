@@ -1,0 +1,19 @@
+<!-- athlete_details.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Athlete Details</title>
+</head>
+<body>
+    <h1>{{ object.first_name }} {{ object.last_name }}</h1>
+    <p>Position: {{ object.position }}</p>
+    <!-- Add more details as needed -->
+
+    <br>
+
+    <a href="/athletics/athlete/edit/{{ athlete.pk }}/">Edit Athlete</a><br>
+<a href="/athletics/athlete/delete/{{ athlete.pk }}/">Delete Athlete</a><br>
+
+
+</body>
+</html>

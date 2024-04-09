@@ -1,0 +1,21 @@
+<!-- athlete_delete.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Athlete</title>
+</head>
+<body>
+    <h1>Delete Athlete</h1>
+    <p>Are you sure you want to delete {{ object.first_name }} {{ object.last_name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+
+
+    </form>
+
+    <br>
+    <a href="/athletics/athlete/list/">Cancel and return to Athlete List</a>
+
+</body>
+</html>

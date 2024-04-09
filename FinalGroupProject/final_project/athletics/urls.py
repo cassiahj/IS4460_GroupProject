@@ -16,5 +16,11 @@ urlpatterns = [
     path('employee/add/', views.EmployeeAdd.as_view(), name='employee-add'),
     path('employee/edit/<int:employee_id>/', views.EmployeeEdit.as_view(),name='employee-edit'),
     path('employee/delete/<int:employee_id>/', views.EmployeeDelete.as_view(),name='employee-delete'),
-    path('employee/details/<int:employee_id>/', views.EmployeeDetails.as_view(), name='employee-details')
+    path('employee/details/<int:employee_id>/', views.EmployeeDetails.as_view(), name='employee-details'),
+
+    path('athlete/list/', views.AthleteList.as_view(), name='athlete-list'),
+    path('athlete/add/', views.AthleteAdd.as_view(), name='athlete-add'),
+    path('athlete/edit/<int:pk>/', views.AthleteEdit.as_view(), name='athlete-edit'),
+    path('athlete/delete/<int:pk>/', views.AthleteDelete.as_view(), name='athlete-delete'),
+    path('athlete/details/<int:pk>/', views.AthleteDetails.as_view(), name='athlete-details'),
 ]
