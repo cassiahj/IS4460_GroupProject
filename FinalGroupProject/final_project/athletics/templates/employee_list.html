@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+Employee List
+{% endblock %}
 
-<h1> Employee List</h1>
-
-
-<u>
-
-    {% for employee in employees%}
-    <a href="/athletics/employee/details/{{ employee.employee_id }}/">{{employee.first_name}} {{employee.last_name}}</a>
-    
-    <br>
-    {%endfor%}
-</u>
-<br>
-<a href="/athletics/employee/add/">Add Employee</a><br>
-
-<br>
-<a href="/athletics/home/">Return Home</a><br>
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Employee List</h1>
+            <ul class="list-unstyled">
+                {% for employee in employees %}
+                    <li><a href="/athletics/employee/details/{{ employee.employee_id }}/">{{ employee.first_name }} {{ employee.last_name }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/athletics/employee/add/" class="btn btn-primary">Add Employee</a>
+            <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

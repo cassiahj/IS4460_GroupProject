@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Scholarship</title>
-</head>
-<body>
-    <h1>Delete Scholarship</h1>
-    <p>Are you sure you want to delete {{ object.name }}?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <br>
-    <a href="/athletics/scholarship/list/">Cancel and return to Scholarship List</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Delete Scholarship
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Delete Scholarship</h1>
+            <p>Are you sure you want to delete {{ object.name }}?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <br>
+            <a href="/athletics/scholarship/list/" class="btn btn-secondary">Cancel and return to Scholarship List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Income List</title>
-</head>
-<body>
-    <h1>Income List</h1>
-    <ul>
-        {% for income in incomes %}
-            <li><a href="{% url 'income-details' income.pk %}">{{ income.team }} - ${{income.amount}}</a></li>
-        {% endfor %}
-    </ul>
-    <br>
-    <a href="/athletics/income/add/">Add Income</a><br>
-    <a href="/athletics/home/">Return Home</a><br>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Income List
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Income List</h1>
+            <ul class="list-unstyled">
+                {% for income in incomes %}
+                    <li><a href="{% url 'income-details' income.pk %}">{{ income.team }} - ${{ income.amount }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/athletics/income/add/" class="btn btn-primary">Add Income</a>
+            <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,33 +1,36 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+Team Details
+{% endblock %}
 
-    <h2>{{ team.team_name }}</h2>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="mt-4">{{ team.team_name }}</h2>
+            <p>Team ID: {{ team.team_id }}</p>
+            <p>Type: {{ team.type }}</p>
+            <p>Email: {{ team.email }}</p>
+            <p>Date Established: {{ team.established_date }}</p>
 
-    Team ID: {{ team.team_id }}<br>
-    Type: {{ team.type }}<br>
-    Email: {{ team.email }}<br>
-    Date Established: {{ team.established_date }}<br>
-    <br>
+            <h3>Employees:</h3>
+            <ul>
+                {% for employee in team.employees_associated.all %}
+                    <li>{{ employee.first_name }} {{ employee.last_name }} - {{ employee.title }}</li>
+                {% endfor %}
+            </ul>
 
-    <h3>Employees:</h3>
-    <ul>
-        {% for employee in team.employees_associated.all %}
-            <li>{{ employee.first_name }} {{ employee.last_name }} - {{ employee.title }}</li>
-        {% endfor %}
-    </ul>
+            <h3>Athletes:</h3>
+            <ul>
+                {% for athlete in team.athletes.all %}
+                    <li>{{ athlete.first_name }} {{ athlete.last_name }} - {{ athlete.position }}</li>
+                {% endfor %}
+            </ul>
 
-    <h3>Athletes:</h3>
-    <ul>
-        {% for athlete in team.athletes.all %}
-            <li>{{ athlete.first_name }} {{ athlete.last_name }} - {{ athlete.position }}</li>
-        {% endfor %}
-    </ul>
-
-    <br>
-    <a href="/athletics/team/edit/{{ team.team_id }}/">Edit Team</a><br>
-    <a href="/athletics/team/delete/{{ team.team_id }}/">Delete Team</a><br>
-    <a href="/athletics/team/list/">Return to Team List</a><br>
-
-</body>
-</html>
+            <a href="/athletics/team/edit/{{ team.team_id }}/" class="btn btn-primary">Edit Team</a>
+            <a href="/athletics/team/delete/{{ team.team_id }}/" class="btn btn-danger">Delete Team</a>
+            <a href="/athletics/team/list/" class="btn btn-secondary">Return to Team List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

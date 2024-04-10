@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html>
-<body>
-   <h2>Delete Team:</h2>
-    
-    <br>
-   <form method="post">
-   
-    {% csrf_token %}
-    {{ form.as_p }}
+{% extends 'base.html' %}
+{% block title %}
+Delete Team
+{% endblock %}
 
-    <input type="submit" value="Delete">
-   </form>
-
-   <br>
-<br>
-   <a href="/athletics/team/list/">Cancel and return to Team List</a>
-</body>
-
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="mt-4">Delete Team:</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+            <br>
+            <a href="/athletics/team/list/" class="btn btn-secondary">Cancel and return to Team List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

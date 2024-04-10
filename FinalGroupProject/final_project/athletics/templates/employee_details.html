@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+Employee Details
+{% endblock %}
 
-    <h2>{{employee.first_name}} {{employee.last_name}}<br></h2>
-
-    <h3>Teams:</h3>
-    <ul>
-        {% for team in employee.teams.all %}
-            <li>{{ team.team_name }}</li>
-        {% empty %}
-            <li>No teams associated</li>
-        {% endfor %}
-    </ul>
-
-    <br>
-    <br>
-
-    <a href="/athletics/employee/edit/{{ employee.employee_id }}/">Edit Employee</a><br>
-    <a href="/athletics/employee/delete/{{ employee.employee_id }}/">Delete Employee</a><br>
-    <a href="/athletics/employee/list/">Return to Employee List</a><br>
-
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="mt-4">{{ employee.first_name }} {{ employee.last_name }}</h2>
+            <h3>Teams:</h3>
+            <ul>
+                {% for team in employee.teams.all %}
+                    <li>{{ team.team_name }}</li>
+                {% empty %}
+                    <li>No teams associated</li>
+                {% endfor %}
+            </ul>
+            <a href="/athletics/employee/edit/{{ employee.employee_id }}/" class="btn btn-primary">Edit Employee</a>
+            <a href="/athletics/employee/delete/{{ employee.employee_id }}/" class="btn btn-danger">Delete Employee</a>
+            <a href="/athletics/employee/list/" class="btn btn-secondary">Return to Employee List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

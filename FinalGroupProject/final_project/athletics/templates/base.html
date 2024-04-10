@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- CSS StyleSheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">University of Utah Athletics</a>
+                <ul class="nav-links">
+                    <li><a href="/athletics/team/list/" class="btn btn-primary mt-2">Team List</a></li>
+                    <li><a href="/athletics/employee/list/" class="btn btn-primary mt-2">Employee List</a></li>
+                    <li><a href="/athletics/athlete/list/" class="btn btn-primary mt-2">Athlete List</a></li>
+                    <li><a href="/athletics/event/list/" class="btn btn-primary mt-2">Event List</a></li>
+                    <li><a href="/athletics/equipment/list/" class="btn btn-primary mt-2">Equipment List</a></li>
+                    <li><a href="/athletics/scholarship/list/" class="btn btn-primary mt-2">Scholarship List</a></li>
+                    <li><a href="/athletics/income/list/" class="btn btn-primary mt-2">Income List</a></li>                    
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} University of Utah Athletics</p>
+            <!-- Add additional footer content here -->
+        </div>
+    </footer>
+</body>
+</html>

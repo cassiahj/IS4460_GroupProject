@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html>
-<body>
-    <h2>Add Employee</h2>
-    <br>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Add">
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Add Employee
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="mt-4">Add Employee</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html>
-<body>
-   <h2>Team Edit:</h2>
-    
-    <br>
-   <form method="post">
-   
-    {% csrf_token %}
-    {{ form.as_p }}
+{% extends 'base.html' %}
+{% block title %}
+Team Edit
+{% endblock %}
 
-    <input type="submit" value="Update">
-   </form>
-<br>
-<br>
-   <a href="/athletics/team/list/">Cancel and return to Team List</a>
-</body>
-
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="mt-4">Team Edit:</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Update" class="btn btn-primary">
+            </form>
+            <br>
+            <a href="/athletics/team/list/" class="btn btn-secondary">Cancel and return to Team List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

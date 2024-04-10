@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Equipment</title>
-</head>
-<body>
-    <h1>Add Equipment</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Add Equipment
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Add Equipment</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

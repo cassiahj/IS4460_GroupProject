@@ -1,20 +1,20 @@
-<!-- athlete_edit.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Athlete</title>
-</head>
-<body>
-    <h1>Edit Athlete</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Changes</button>
-    </form>
+{% extends 'base.html' %}
+{% block title %}
+Edit Athlete
+{% endblock %}
 
-<br>
-
-<a href="/athletics/athlete/list/">Cancel and return to Athlete List</a>
-
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Edit Athlete</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+            <a href="/athletics/athlete/list/" class="btn btn-secondary mt-3">Cancel and return to Athlete List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

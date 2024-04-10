@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html>
-<body>
-   <h2>Delete Employee:</h2>
-    
-    <br>
-   <form method="post">
-   
-    {% csrf_token %}
-    {{ form.as_p }}
+{% extends 'base.html' %}
+{% block title %}
+Delete Employee
+{% endblock %}
 
-    <input type="submit" value="Delete">
-   </form>
-
-   <br>
-<br>
-   <a href="/athletics/employee/list/">Cancel and return to Employee List</a>
-</body>
-
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="mt-4">Delete Employee:</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <a href="/athletics/employee/list/" class="btn btn-secondary mt-3">Cancel and return to Employee List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Scholarship</title>
-</head>
-<body>
-    <h1>Edit Scholarship</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Changes</button>
-    </form>
-    <br>
-    <a href="/athletics/scholarship/list/">Cancel and return to Scholarship List</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Edit Scholarship
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Edit Scholarship</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+            <br>
+            <a href="/athletics/scholarship/list/" class="btn btn-secondary">Cancel and return to Scholarship List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

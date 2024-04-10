@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Scholarship List</title>
-</head>
-<body>
-    <h1>Scholarship List</h1>
-    <ul>
-        {% for scholarship in scholarships %}
-            <li><a href="{% url 'scholarship-details' scholarship.pk %}">{{ scholarship.athlete }} - ${{scholarship.amount}}</a></li>
-        {% endfor %}
-    </ul>
-    <br>
-    <a href="/athletics/scholarship/add/">Add Scholarship</a><br>
-    <a href="/athletics/home/">Return Home</a><br>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Scholarship List
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Scholarship List</h1>
+            <ul class="list-unstyled">
+                {% for scholarship in scholarships %}
+                    <li><a href="{% url 'scholarship-details' scholarship.pk %}">{{ scholarship.athlete }} - ${{ scholarship.amount }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/athletics/scholarship/add/" class="btn btn-primary">Add Scholarship</a>
+            <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,24 +1,20 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}
+Athletics Home Page
+{% endblock %}
 
-<html>
-<body>
-    <a href="/athletics/team/list/" >Team List</a>
-    <br>
-    <a href ="/athletics/employee/list/" > Employee List</a>
-    <br>
-    <a href = "/athletics/athlete/list/"> Athlete List</a>
-    <br>
-    <a href = "/athletics/event/list/"> Event List</a>
-    <br>
-    <a href = "/athletics/equipment/list/"> Equipment List</a>
-    <br>
-    <a href = "/athletics/scholarship/list/"> Scholarship List</a>
-    <br>
-    <a href = "/athletics/income/list/"> Income List</a>
-
-
-
-
-</body>
-
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <a href="/athletics/team/list/" class="btn btn-primary mt-2">Team List</a>
+            <a href="/athletics/employee/list/" class="btn btn-primary mt-2">Employee List</a>
+            <a href="/athletics/athlete/list/" class="btn btn-primary mt-2">Athlete List</a>
+            <a href="/athletics/event/list/" class="btn btn-primary mt-2">Event List</a>
+            <a href="/athletics/equipment/list/" class="btn btn-primary mt-2">Equipment List</a>
+            <a href="/athletics/scholarship/list/" class="btn btn-primary mt-2">Scholarship List</a>
+            <a href="/athletics/income/list/" class="btn btn-primary mt-2">Income List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

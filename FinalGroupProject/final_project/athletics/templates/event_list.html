@@ -1,23 +1,21 @@
-<!-- event_list.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Event List</title>
-</head>
-<body>
-    <h1>Event List</h1>
-    <ul>
-        {% for event in events %}
-            <li><a href="{% url 'event-details' event.pk %}">{{ event.team }} - {{ event.date }}</a></li>
-        {% endfor %}
-    </ul>
+{% extends 'base.html' %}
+{% block title %}
+Event List
+{% endblock %}
 
-    <br>
-
-<a href="/athletics/event/add/">Add Event</a><br>
-<br>
-<a href="/athletics/home/">Return Home</a><br>
-
-
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Event List</h1>
+            <ul class="list-unstyled">
+                {% for event in events %}
+                    <li><a href="{% url 'event-details' event.pk %}">{{ event.team }} - {{ event.date }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/athletics/event/add/" class="btn btn-primary">Add Event</a>
+            <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

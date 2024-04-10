@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Event Details</title>
-</head>
-<body>
-    <h1>{{object.name}}</h1>
-    
-    <p>Date: {{ object.date }}</p>
-    <p>Income: {{ object.income }}</p>
-    <p>Expenses: {{ object.expenses }}</p>
-    <p>Opponent: {{ object.opponent }}</p>
+{% extends 'base.html' %}
+{% block title %}
+Edit Equipment
+{% endblock %}
 
-    <br>
-
-    <a href="{% url 'event-edit' object.pk %}">Edit Event</a><br>
-    <a href="{% url 'event-delete' object.pk %}">Delete Event</a><br>
-    <a href="{% url 'event-list' %}">Back to Event List</a>
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">{{ object.name }}</h1>
+            <p>Date: {{ object.date }}</p>
+            <p>Income: {{ object.income }}</p>
+            <p>Expenses: {{ object.expenses }}</p>
+            <p>Opponent: {{ object.opponent }}</p>
+            <br>
+            <a href="{% url 'event-edit' object.pk %}" class="btn btn-primary">Edit Event</a>
+            <a href="{% url 'event-delete' object.pk %}" class="btn btn-danger">Delete Event</a>
+            <a href="{% url 'event-list' %}" class="btn btn-secondary">Back to Event List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

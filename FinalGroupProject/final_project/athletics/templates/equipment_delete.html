@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Equipment</title>
-</head>
-<body>
-    <h1>Delete Equipment</h1>
-    <p>Are you sure you want to delete ?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <br>
-    <a href="/athletics/equipment/list/">Cancel and return to Equipment List</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Delete Equipment
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Delete Equipment</h1>
+            <p>Are you sure you want to delete?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <br>
+            <a href="/athletics/equipment/list/" class="btn btn-secondary">Cancel and return to Equipment List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

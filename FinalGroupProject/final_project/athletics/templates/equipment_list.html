@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Equipment List</title>
-</head>
-<body>
-    <h1>Equipment List</h1>
-    <ul>
-        {% for equipment in equipment %}
-            <li><a href="{% url 'equipment-details' equipment.pk %}">{{ equipment.name }}</a></li>
-        {% endfor %}
-    </ul>
+{% extends 'base.html' %}
+{% block title %}
+Equipment List
+{% endblock %}
 
-    <br>
-    <a href="/athletics/equipment/add/">Add Equipment</a><br>
-    <br>
-    <a href="/athletics/home/">Return Home</a><br>
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Equipment List</h1>
+            <ul class="list-unstyled">
+                {% for equipment in equipment %}
+                    <li><a href="{% url 'equipment-details' equipment.pk %}">{{ equipment.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/athletics/equipment/add/" class="btn btn-primary">Add Equipment</a>
+            <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,22 +1,21 @@
-<!-- athlete_list.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Athlete List</title>
-</head>
-<body>
-    <h1>Athlete List</h1>
-    <ul>
-        {% for athlete in athletes %}
-            <li><a href="{% url 'athlete-details' athlete.id %}">{{ athlete.first_name }} {{ athlete.last_name }} - {{ athlete.position }}</a></li>
-        {% endfor %}
-    </ul>
-<br>
+{% extends 'base.html' %}
+{% block title %}
+Athlete List
+{% endblock %}
 
-<br>
-<a href="/athletics/athlete/add/">Add Athlete</a><br>
-<br>
-<a href="/athletics/home/">Return Home</a><br>
-
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mt-4">Athlete List</h1>
+            <ul class="list-group">
+                {% for athlete in athletes %}
+                <li class="list-group-item"><a href="{% url 'athlete-details' athlete.id %}">{{ athlete.first_name }} {{ athlete.last_name }} - {{ athlete.position }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/athletics/athlete/add/" class="btn btn-primary mt-3">Add Athlete</a>
+            <a href="/athletics/home/" class="btn btn-secondary mt-3">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
