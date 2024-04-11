@@ -6,7 +6,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('home/',views.Home.as_view(),name = 'home'),
-    path('athletics/', include("django.contrib.auth.urls")),
+    path('', include("django.contrib.auth.urls")),
 
     path('team/list/', views.TeamList.as_view(),name = 'team-list'),
     path('team/add/', views.TeamAdd.as_view(), name = 'team-add'),

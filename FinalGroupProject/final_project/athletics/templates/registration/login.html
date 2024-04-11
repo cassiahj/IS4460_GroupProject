@@ -1,6 +1,7 @@
+{% block title %}Login{% endblock %}
 <form method="post">
-    {% csrf_token % }
-    <label> for="id_username">Username:</label>
+    {% csrf_token %}
+    <label for="id_username">Username:</label>
     <input type="text" name="username" id="id_username">
     <br>
     <label for="id_password">Password:</label>

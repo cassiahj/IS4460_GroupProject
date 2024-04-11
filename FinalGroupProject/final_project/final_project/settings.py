@@ -131,5 +131,5 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-LOGIN_REDIRECT_URL = "/employee/add/"
-LOGOUT_REDIRECT_URL = "/accounts/login"
+LOGIN_REDIRECT_URL = "athletics/home/"
+LOGOUT_REDIRECT_URL = "/athletics/login"
