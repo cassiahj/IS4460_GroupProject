@@ -1,0 +1,29 @@
+/* styles.css */
+
+/* Navbar styles */
+.navbar {
+    background-color: #B60000; /* University of Utah red */
+    color: #FFFFFF; /* White text */
+  }
+  
+  .navbar-brand {
+    color: #FFFFFF; /* White text for the brand */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #FFFFFF; /* White text for the links */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #CCCCCC; /* Light gray text for hovered links */
+  }
+  
+  /* Body styles */
+  body {
+    background-color: #FFFFFF; /* White background */
+  }
+  
+  .container {
+    padding: 20px; /* Add some padding to the container */
+  }
+  

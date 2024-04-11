@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +8,31 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
 </head>
 <body>
     <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <a href="/" class="logo">University of Utah Athletics</a>
-                <ul class="nav-links">
-                    <li><a href="/athletics/team/list/" class="btn btn-primary mt-2">Team List</a></li>
-                    <li><a href="/athletics/employee/list/" class="btn btn-primary mt-2">Employee List</a></li>
-                    <li><a href="/athletics/athlete/list/" class="btn btn-primary mt-2">Athlete List</a></li>
-                    <li><a href="/athletics/event/list/" class="btn btn-primary mt-2">Event List</a></li>
-                    <li><a href="/athletics/equipment/list/" class="btn btn-primary mt-2">Equipment List</a></li>
-                    <li><a href="/athletics/scholarship/list/" class="btn btn-primary mt-2">Scholarship List</a></li>
-                    <li><a href="/athletics/income/list/" class="btn btn-primary mt-2">Income List</a></li>                    
-                </ul>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">University of Utah Athletics</a>
+              </div>
+              <ul class="nav">
+                <li><a href="/athletics/team/list/">Team List</a></li>
+                <li><a href="/athletics/employee/list/">Employee List</a></li>
+                <li><a href="/athletics/athlete/list/">Athlete List</a></li>
+                <li><a href="/athletics/event/list/">Event List</a></li>
+                <li><a href="/athletics/equipment/list/">Equipment List</a></li>
+                <li><a href="/athletics/scholarship/list/">Scholarship List</a></li>
+                <li><a href="/athletics/income/list/">Income List</a></li>
+              </ul>
             </div>
-        </nav>
+          </nav>
+          
+          
     </header>
+    
     
     
     <div class="container">
