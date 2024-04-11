@@ -7,6 +7,7 @@ from django.views import View
 from rest_framework import generics
 from django.views import generic
 from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # from django.views.generic.edit import DeleteView
 # from django.views.generic import DetailView
@@ -35,7 +36,7 @@ class TeamList(View):
                       template_name = 'team_list.html',
                       context = {'teams':teams})
     
-class TeamAdd(CreateView):
+class TeamAdd( CreateView):
 
     model = Team
     form_class = TeamForm
