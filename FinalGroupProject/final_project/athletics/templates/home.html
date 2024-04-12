@@ -15,6 +15,12 @@ Athletics Home Page
             <a href="/athletics/scholarship/list/" class="btn btn-primary mt-2">Scholarship List</a>
             <a href="/athletics/income/list/" class="btn btn-primary mt-2">Income List</a>
             <a href="/athletics/rank/list/" class="btn btn-primary mt-2">Rank List</a>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+
         </div>
     </div>
 </div>

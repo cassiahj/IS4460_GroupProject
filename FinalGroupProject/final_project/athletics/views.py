@@ -34,7 +34,7 @@ class Home(View):
 #         return render(request = request, template_name = 'report_list.html', context = {})
     
 
-class Report(View):
+class Report(LoginRequiredMixin, View):
     def get(self, request, team_id):
 
         team = Team.objects.get(pk=team_id)
