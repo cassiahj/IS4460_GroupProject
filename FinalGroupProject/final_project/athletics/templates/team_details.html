@@ -27,8 +27,11 @@ Team Details
                 {% endfor %}
             </ul>
 
+
             <a href="/athletics/team/edit/{{ team.team_id }}/" class="btn btn-primary">Edit Team</a>
             <a href="/athletics/team/delete/{{ team.team_id }}/" class="btn btn-danger">Delete Team</a>
+            <a href="/athletics/team/report/{{team.team_id}}" class="btn btn-info">Financial Report</a>
+
             <a href="/athletics/team/list/" class="btn btn-secondary">Return to Team List</a>
         </div>
     </div>

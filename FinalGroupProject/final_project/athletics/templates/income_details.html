@@ -8,10 +8,11 @@ Income Details
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h1 class="mt-4">Income Details</h1>
-            <h4>Team: {{ object.team }}</h4>
-            <h4>Amount: {{ object.amount }}</h4>
-            <h4>Type: {{ object.get_type_display }}</h4>
-            <h4>Date Recorded: {{ object.date_recorded }}</h4>
+            <p>Team: {{ object.team }}</p>
+            <p>Amount: {{ object.amount }}</p>
+            <p>Type: {{ object.get_type_display }}</p>
+            <p>Date Recorded: {{ object.date_recorded }}</p>
+            
             <br>
             <a href="/athletics/income/edit/{{ object.pk }}/" class="btn btn-primary">Edit Income</a>
             <a href="/athletics/income/delete/{{ object.pk }}/" class="btn btn-danger">Delete Income</a>
