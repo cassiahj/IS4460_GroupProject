@@ -10,7 +10,7 @@ Equipment List
             <h1 class="mt-4">Equipment List</h1>
             <ul class="list-unstyled">
                 {% for equipment in equipment %}
-                    <li><a href="{% url 'equipment-details' equipment.pk %}">{{ equipment.name }}</a></li>
+                    <li><a href="{% url 'equipment-details' equipment.pk %}">{{ equipment.type }} -  {{equipment.team}}</a></li>
                 {% endfor %}
             </ul>
             <a href="/athletics/equipment/add/" class="btn btn-primary">Add Equipment</a>

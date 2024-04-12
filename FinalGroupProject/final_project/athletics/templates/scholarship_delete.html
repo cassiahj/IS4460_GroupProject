@@ -8,7 +8,9 @@ Delete Scholarship
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h1 class="mt-4">Delete Scholarship</h1>
-            <p>Are you sure you want to delete {{ object.name }}?</p>
+            <p>Are you sure you want to delete this scholarship?</p>
+            <p> Athlete: {{scholarship.athlete}}</p>
+            <p> Amount: {{scholarship.amount}}</p>
             <form method="post">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Delete</button>

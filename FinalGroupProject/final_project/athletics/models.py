@@ -108,9 +108,9 @@ class Equipment(models.Model):
     equipment_id=models.AutoField(primary_key=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     type=models.CharField(max_length=255) #should this be a multiple choice? 
-    notes = models.TextField(default = "")
-
-    annual_cost=models.IntegerField()
+    notes = models.TextField(default = "",blank= True)
+    upfront_cost = models.IntegerField()
+    annual_cost=models.IntegerField(default=0)
     date_purchased=models.DateField()
 
 class Event(models.Model):

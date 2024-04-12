@@ -7,8 +7,8 @@ Employee Details
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h2 class="mt-4">{{ employee.first_name }} {{ employee.last_name }}</h2>
-            <h3>Teams:</h3>
+            <h1 class="mt-4">{{ employee.first_name }} {{ employee.last_name }}</h1>
+            <h4>Teams:</h4>
             <ul>
                 {% for team in employee.teams.all %}
                     <li>{{ team.team_name }}</li>
