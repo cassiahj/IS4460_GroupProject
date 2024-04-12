@@ -17,8 +17,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 
-from .models import Team, Athlete, Employee, Event, Equipment, Scholarship, Income
-from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm, EquipmentForm, ScholarshipForm, IncomeForm
+from .models import Team, Athlete, Employee, Event, Equipment, Scholarship, Income, Rank
+from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm, EquipmentForm, ScholarshipForm, IncomeForm, RankForm
 
 
 class Home(View):
@@ -334,4 +334,31 @@ class IncomeEdit(UpdateView):
     form_class = IncomeForm
     template_name = 'income_edit.html'
     success_url = reverse_lazy('income-list')
+# 
+
+class RankAdd(CreateView):
+    model = Rank
+    form_class = RankForm
+    template_name = 'rank_add.html'
+    success_url = '/athletics/rank/list/'
+
+class RankList(ListView):
+    model = Income
+    template_name = 'rank_list.html'
+    context_object_name = 'ranks'
+
+class RankDelete(DeleteView):
+    model = Rank
+    success_url = reverse_lazy('rank-list')
+    template_name = 'rank_delete.html'
+
+class RankDetails(DetailView):
+    model = Rank
+    template_name = 'rank_details.html'
+
+class RankEdit(UpdateView):
+    model = Rank
+    form_class = RankForm
+    template_name = 'rank_edit.html'
+    success_url = reverse_lazy('rank-list')
 

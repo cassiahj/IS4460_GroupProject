@@ -52,4 +52,10 @@ urlpatterns = [
     path('income/delete/<int:pk>/', views.IncomeDelete.as_view(), name='income-delete'),
     path('income/details/<int:pk>/', views.IncomeDetails.as_view(), name='income-details'),
 
+    path('rank/list/', views.RankList.as_view(), name='rank-list'),
+    path('rank/add/', views.RankAdd.as_view(), name='rank-add'),
+    path('rank/edit/<int:pk>/', views.RankEdit.as_view(), name='rank-edit'),
+    path('rank/delete/<int:pk>/', views.RankDelete.as_view(), name='rank-delete'),
+    path('rank/details/<int:pk>/', views.RankDetails.as_view(), name='rank-details'),
+
 ]

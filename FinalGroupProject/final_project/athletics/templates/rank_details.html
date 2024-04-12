@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Rank Details
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Rank Details</h1>
+            <p>Team: {{ object.team }}</p>
+            <p>Rank: {{ object.rank }}</p>
+            <p>Date Recorded: {{ object.date_recorded }}</p>
+            
+            <br>
+            <a href="/athletics/rank/edit/{{ object.pk }}/" class="btn btn-primary">Edit Rank</a>
+            <a href="/athletics/rank/delete/{{ object.pk }}/" class="btn btn-danger">Delete Rank</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

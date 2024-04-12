@@ -121,3 +121,10 @@ class Event(models.Model):
     date = models.DateField()
     expenses = models.IntegerField()
     opponent = models.CharField(max_length=255)
+
+class Rank(models.Model):  
+    rank_id=models.AutoField(primary_key=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    #team_name = models.ForeignKey(Team) not sure if this one is correct
+    rank = models.IntegerField()
+    date_recorded = models.DateField()

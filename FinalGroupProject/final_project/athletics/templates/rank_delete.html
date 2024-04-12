@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+Delete Rank
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-4">Delete Rank</h1>
+            <p>Are you sure you want to delete this rank?</p>
+            <p> Team: {{rank.team}}</p>
+            <p> Amount: {{rank.amount}}</p>
+            <p> Type: {{rank.get_type_display}}</p>
+            <form method="post">
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <br>
+            <a href="/athletics/rank/list/" class="btn btn-secondary">Cancel and return to Rank List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
