@@ -7,11 +7,12 @@ Scholarship Details
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="mt-4">Scholarship awarded to {{ object.athlete }}</h1>
-            <h4>Amount: {{ object.amount }}</h4>
-            <h4>Type: {{ object.get_type_display }}</h4>
-            <h4>Donor: {{ object.donor }}</h4>
-            <h4>Date Awarded: {{ object.date_awarded }}</h4>
+            <h1 class="mt-4">Scholarship: {{ object.athlete }}</h1>
+            <p>Amount: {{ object.amount }}</p>
+            <p>Type: {{ object.get_type_display }}</p>
+            <p>Donor: {{ object.donor }}</p>
+            <p>Date Awarded: {{ object.date_awarded }}</p>
+            
             <br>
             <a href="/athletics/scholarship/edit/{{ object.pk }}/" class="btn btn-primary">Edit Scholarship</a>
             <a href="/athletics/scholarship/delete/{{ object.pk }}/" class="btn btn-danger">Delete Scholarship</a>

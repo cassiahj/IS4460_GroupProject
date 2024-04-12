@@ -8,6 +8,8 @@ urlpatterns = [
     path('home/',views.Home.as_view(),name = 'home'),
     path('', include("django.contrib.auth.urls")),
 
+    path('team/report/<int:team_id>/', views.Report.as_view(), name = 'team_report'),
+
     path('team/list/', views.TeamList.as_view(),name = 'team-list'),
     path('team/add/', views.TeamAdd.as_view(), name = 'team-add'),
     path('team/edit/<int:team_id>/', views.TeamEdit.as_view(),name = 'team-edit'),

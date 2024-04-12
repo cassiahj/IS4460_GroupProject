@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}
-Athlete List
+Team List
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="mt-4">Athlete List</h1>
+            <h1 class="mt-4">Income vs Expenses by Team</h1>
             <ul class="list-unstyled">
-                {% for athlete in athletes %}
-                <li><a href="{% url 'athlete-details' athlete.id %}">{{ athlete.first_name }} {{ athlete.last_name }} - {{ athlete.position }}</a></li>
+                {% for team in teams %}
+                    <li><a href="/athletics/team/details/{{ team.team_id }}/">{{ team.team_name }}</a></li>
                 {% endfor %}
             </ul>
-            <a href="/athletics/athlete/add/" class="btn btn-primary">Add Athlete</a>
             <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
         </div>
     </div>

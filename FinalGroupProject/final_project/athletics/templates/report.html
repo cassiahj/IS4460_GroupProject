@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}
+Financial Report{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-3">
+            <h1 class="mt-4">{{team.team_name}}: Income vs Expenses</h1>
+            <h3>Income:</h3>
+
+            {% for income in incomes %}
+ 
+                <li>{{ income.get_type_display }}: ${{ income.amount }}</li>
+            {% endfor %}
+
+            {% for event in events %}
+ 
+                <li>Event Income - {{ event.name }}: ${{ event.income }}</li>
+            {% endfor %}
+
+
+
+            <h3>One-Time Expenses:</h3>
+        {% for athlete in athletes %}
+                {% for scholarship in athlete.scholarship_set.all %}
+                    <li>Scholarship - {{ athlete.first_name }} {{ athlete.last_name }}: ${{ scholarship.amount }}</li>
+                {% endfor %}
+        {% endfor %}
+
+        {% for event in events %}
+            <li>Event Expense - {{ event.name }}: ${{ event.expenses }}</li>
+        {% endfor %}
+
+        {% for equipment in equipments %}
+                <li>Equipment - {{ equipment.type }}:  ${{ equipment.upfront_cost }}</li>
+        {% endfor %}
+        
+            <h3>Annual Expenses:</h3>
+        {% for employee in team.employees_associated.all %}
+                <li>Salary - {{ employee.first_name }} {{ employee.last_name }}: ${{employee.salary}}</li>
+        {% endfor %}
+{% for equipment in equipments %}
+    {% if equipment.annual_cost != 0 %}
+        <li>Equipment - {{ equipment.type }}: ${{ equipment.annual_cost }}</li>
+    {% endif %}
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

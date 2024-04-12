@@ -25,6 +25,48 @@ class Home(View):
     def get(self, request):
         
         return render(request=request, template_name='home.html', context={})
+    
+
+# class ReportList(View):
+#     def get(self, request):
+
+#         teams = Team.objects.all()
+#         return render(request = request, template_name = 'report_list.html', context = {})
+    
+
+class Report(View):
+    def get(self, request, team_id):
+
+        team = Team.objects.get(pk=team_id)
+        employees = team.employees.all()
+        athletes = team.athletes.all()
+        scholarships = Scholarship.objects.filter(athlete__in=athletes)
+        incomes = Income.objects.all()
+        equipments = Equipment.objects.all()
+        events = Event.objects.all()
+
+
+
+
+        return render(request = request,
+                    template_name = 'report.html',
+                    context = { 'team': team,
+                                'employees': employees,
+                                'athletes' : athletes,
+                                'scholarships': scholarships,
+                                'incomes': incomes,
+                                'equipments': equipments,
+                                'events': events
+
+                                })
+    
+
+
+
+
+
+
+
 
 class TeamList(View):
 
@@ -43,19 +85,6 @@ class TeamAdd( CreateView):
     template_name = 'team_add.html'
     success_url = '/athletics/team/list/'
 
-    
-
-    # def get(self, request):
-    #     form = TeamCreateForm()
-    #     return render(request=request, template_name='team_add.html', context={'form': form})
-
-    # def post(self, request):
-    #     form = TeamCreateForm(request.POST, request.FILES)
-    #     if form.is_valid():
-
-    #         form.save()
-    #         return redirect('team-list')
-    #     return render(request=request, template_name='team_add', context={'form': form})
 
 class TeamEdit(View):
     def get(self,request,team_id):
@@ -254,8 +283,6 @@ class EquipmentEdit(UpdateView):
     template_name = 'equipment_edit.html'
     success_url = reverse_lazy('equipment-list')
 
-
-
 class ScholarshipAdd(CreateView):
     model = Scholarship
     form_class = ScholarshipForm
@@ -281,8 +308,6 @@ class ScholarshipEdit(UpdateView):
     form_class = ScholarshipForm
     template_name = 'scholarship_edit.html'
     success_url = reverse_lazy('scholarship-list')
-
-
 
 class IncomeAdd(CreateView):
     model = Income
