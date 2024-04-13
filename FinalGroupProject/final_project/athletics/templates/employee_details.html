@@ -8,6 +8,13 @@ Employee Details
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h1 class="mt-4">{{ employee.first_name }} {{ employee.last_name }}</h1>
+            <p class="mt-4">Title: {{ employee.title }} </p>
+            <p class="mt-4">Start Date: ${{ employee.start_date }}</p>
+
+
+
+
+
             <h4>Teams:</h4>
             <ul>
                 {% for team in employee.teams.all %}
