@@ -32,10 +32,19 @@ class Home(View):
 
 #         teams = Team.objects.all()
 #         return render(request = request, template_name = 'report_list.html', context = {})
-    
+
+def can_view_reports(request):
+    return request.user.groups.filter(name='Can View Reports').exists()
+
 
 class Report(LoginRequiredMixin, View):
     def get(self, request, team_id):
+
+        if not can_view_reports(request):
+            user_message = "Cannot View Reports. You are an employee not an admin."
+        else: 
+            #not sure what to put here
+            reports = Report.objects.all()
 
         team = Team.objects.get(pk=team_id)
         employees = team.employees.all()
@@ -44,9 +53,6 @@ class Report(LoginRequiredMixin, View):
         incomes = Income.objects.all()
         equipments = Equipment.objects.all()
         events = Event.objects.all()
-
-
-
 
         return render(request = request,
                     template_name = 'report.html',
