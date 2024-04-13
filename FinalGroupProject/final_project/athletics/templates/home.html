@@ -7,20 +7,53 @@ Athletics Home Page
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <a href="/athletics/team/list/" class="btn btn-primary mt-2">Team List</a>
-            <a href="/athletics/employee/list/" class="btn btn-primary mt-2">Employee List</a>
-            <a href="/athletics/athlete/list/" class="btn btn-primary mt-2">Athlete List</a>
-            <a href="/athletics/event/list/" class="btn btn-primary mt-2">Event List</a>
-            <a href="/athletics/equipment/list/" class="btn btn-primary mt-2">Equipment List</a>
-            <a href="/athletics/scholarship/list/" class="btn btn-primary mt-2">Scholarship List</a>
-            <a href="/athletics/income/list/" class="btn btn-primary mt-2">Income List</a>
-            <a href="/athletics/rank/list/" class="btn btn-primary mt-2">Rank List</a>
+            <div class="btn-square">
+                <a href="/athletics/team/list/">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span>Team List</span>
+                </a>
+            </div>
+            <div class="btn-square">
+                <a href="/athletics/athlete/list/">
+                    <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                    <span>Athlete List</span>
+                </a>
+            </div>
+            <div class="btn-square">
+                <a href="/athletics/event/list/">
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    <span>Event List</span>
+                </a>
+            </div>
+            <div class="btn-square">
+                <a href="/athletics/equipment/list/">
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                    <span>Equipment List</span>
+                </a>
+            </div>
+            <div class="btn-square">
+                <a href="/athletics/scholarship/list/">
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                    <span>Scholarship List</span>
+                </a>
+            </div>
+            <div class="btn-square">
+                <a href="/athletics/income/list/">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                    <span>Income List</span>
+                </a>
+            </div>
+            <div class="btn-square">
+                <a href="/athletics/rank/list/">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span>Rank List</span>
+                </a>
+            </div>
             <br>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit">Logout</button>
             </form>
-
         </div>
     </div>
 </div>

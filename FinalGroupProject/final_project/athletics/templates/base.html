@@ -3,33 +3,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>{% block title %}Default Title{% endblock %}</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- CSS StyleSheet -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="/athletics/home">University of Utah Athletics</a>
-              </div>
-              <ul class="nav">
-                <li class="mr-3"><a href="/athletics/team/list/"> Team List </a></li>
-                <li class="mr-3"><a href="/athletics/employee/list/"> Employee List </a></li>
-                <li class="mr-3"><a href="/athletics/athlete/list/"> Athlete List </a></li>
-                <li class="mr-3"><a href="/athletics/event/list/"> Event List </a></li>
-                <li class="mr-3"><a href="/athletics/equipment/list/"> Equipment List </a></li>
-                <li class="mr-3"><a href="/athletics/scholarship/list/"> Scholarship List </a></li>
-                <li class="mr-3"><a href="/athletics/income/list/"> Income List </a></li>
-                <li class="mr-3"><a href="/athletics/rank/list/"> Rank List </a></li>
-              </ul>
+      <nav class="navbar">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/athletics/home">University of Utah Athletics</a>
             </div>
-          </nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/athletics/team/list/"> Team List </a></li>
+              <li><a href="/athletics/employee/list/"> Employee List </a></li>
+              <li><a href="/athletics/athlete/list/"> Athlete List </a></li>
+              <li><a href="/athletics/event/list/"> Event List </a></li>
+              <li><a href="/athletics/equipment/list/"> Equipment List </a></li>
+              <li><a href="/athletics/scholarship/list/"> Scholarship List </a></li>
+              <li><a href="/athletics/income/list/"> Income List </a></li>
+              <li><a href="/athletics/rank/list/"> Rank List </a></li>
+            </ul>
+          </div>
+        </nav>
           
           
     </header>

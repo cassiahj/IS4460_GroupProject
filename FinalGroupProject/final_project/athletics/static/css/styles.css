@@ -1,0 +1,48 @@
+/* styles.css */
+
+/* Navbar styling */
+.navbar {
+  background-color: #CC0000; /* University of Utah red */
+  color: white; /* White text */
+}
+
+.navbar-nav > li > a {
+  color: white !important; /* White text */
+}
+
+.navbar-nav > li > a:hover {
+  background-color: white !important; /* White hover color */
+  color: #CC0000 !important; /* University of Utah red on hover */
+}
+
+/* Body styles */
+body {
+  background-color: #FFFFFF; /* White background */
+}
+
+.container {
+  padding: 20px; /* Add some padding to the container */
+}
+
+.btn-square {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  background-color: #B60000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-square a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.btn-square a:hover {
+  color: #CCCCCC;
+}
