@@ -12,8 +12,8 @@ Equipment Details
 
             <p>Date purchased: {{ object.date_purchased }}</p>
             <p>Notes: {{ object.notes }}</p>
-            <p>Upfront cost: {{ object.upfront_cost }}</p>
-            <p>Annual cost: {{ object.annual_cost }}</p>
+            <p>Upfront cost: ${{ object.upfront_cost }}</p>
+            <p>Annual cost: ${{ object.annual_cost }}</p>
 
             <!-- Add more details as needed -->
             <a href="/athletics/equipment/edit/{{ object.pk }}/" class="btn btn-primary">Edit Equipment</a>

@@ -13,26 +13,37 @@
 
 </head>
 <body>
-      <nav class="navbar">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="/athletics/home">University of Utah Athletics</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/athletics/team/list/"> Team List </a></li>
-              <li><a href="/athletics/employee/list/"> Employee List </a></li>
-              <li><a href="/athletics/athlete/list/"> Athlete List </a></li>
-              <li><a href="/athletics/event/list/"> Event List </a></li>
-              <li><a href="/athletics/equipment/list/"> Equipment List </a></li>
-              <li><a href="/athletics/scholarship/list/"> Scholarship List </a></li>
-              <li><a href="/athletics/income/list/"> Income List </a></li>
-              <li><a href="/athletics/rank/list/"> Rank List </a></li>
-            </ul>
+  <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/athletics/home">University of Utah Athletics</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/athletics/team/list/"> Team List </a></li>
+          <li><a href="/athletics/employee/list/"> Employee List </a></li>
+          <li><a href="/athletics/athlete/list/"> Athlete List </a></li>
+          <li><a href="/athletics/event/list/"> Event List </a></li>
+          <li><a href="/athletics/equipment/list/"> Equipment List </a></li>
+          <li><a href="/athletics/scholarship/list/"> Scholarship List </a></li>
+          <li><a href="/athletics/income/list/"> Income List </a></li>
+          <li><a href="/athletics/rank/list/"> Rank List </a></li>
+          <li><div class="logout-btn-container">
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
           </div>
-        </nav>
-          
-          
-    </header>
+          </li>
+        </form>
+        </ul>
+        
+      </div>
+      
+    </nav>
+      
+      
+</header>
+
     
     
     

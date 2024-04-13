@@ -6,6 +6,13 @@
   color: white; /* White text */
 }
 
+.navbar-brand {
+  background-color: #CC0000; /* University of Utah red */
+  color: white; /* White text */
+
+
+}
+
 .navbar-nav > li > a {
   color: white !important; /* White text */
 }
@@ -45,4 +52,13 @@ body {
 
 .btn-square a:hover {
   color: #CCCCCC;
+}
+
+
+.logout-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px; /* Optional: Adjust spacing */
+  margin-right: 10px;
 }
