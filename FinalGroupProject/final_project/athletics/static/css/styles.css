@@ -62,3 +62,39 @@ body {
   margin-top: 8px; /* Optional: Adjust spacing */
   margin-right: 10px;
 }
+
+
+
+
+.btn-square-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-square {
+  margin: 30px; 
+}
+
+
+.btn-primary {
+  color: #fff; 
+  background-color: #B60000; 
+  border-color: #B60000; 
+}
+
+.btn-primary:hover {
+  background-color: #a80000; 
+  border-color: #a80000;
+}
+
+.btn-danger {
+  color: #fff; 
+  background-color: #000; 
+  border-color: #000; 
+}
+
+.btn-danger:hover {
+  background-color: #333; 
+  border-color: #333; 
+}
