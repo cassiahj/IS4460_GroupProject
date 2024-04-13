@@ -132,8 +132,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-LOGIN_REDIRECT_URL = "/athletics/home/"
-LOGOUT_REDIRECT_URL = "/athletics/login"
+LOGIN_REDIRECT_URL = "/athletics/home"
+LOGOUT_REDIRECT_URL = "/accounts/login"
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

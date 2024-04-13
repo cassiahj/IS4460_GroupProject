@@ -21,7 +21,7 @@ from .models import Team, Athlete, Employee, Event, Equipment, Scholarship, Inco
 from .forms import TeamForm, TeamCreateForm, TeamDeleteForm, EmployeeForm, EmployeeDeleteForm, AthleteForm, EventForm, EquipmentForm, ScholarshipForm, IncomeForm, RankForm
 
 
-class Home(View):
+class Home(LoginRequiredMixin, View):
     def get(self, request):
         
         return render(request=request, template_name='home.html', context={})
@@ -34,26 +34,32 @@ class Home(View):
 #         return render(request = request, template_name = 'report_list.html', context = {})
 
 def can_view_reports(request):
-    return request.user.groups.filter(name='Can View Reports').exists()
+    return request.user.groups.filter(name='Admin').exists()
 
 
 class Report(LoginRequiredMixin, View):
     def get(self, request, team_id):
-
+        user_message = ""
+        team = None
+        employees = None
+        athletes = None
+        scholarships = None
+        incomes = None
+        equipments = None
+        events = None
         if not can_view_reports(request):
             user_message = "Cannot View Reports. You are an employee not an admin."
         else: 
-            #not sure what to put here
-            reports = Report.objects.all()
+            team = Team.objects.get(pk=team_id)
+            employees = team.employees.all()
+            athletes = team.athletes.all()
+            scholarships = Scholarship.objects.filter(athlete__in=athletes)
+            incomes = Income.objects.all()
+            equipments = Equipment.objects.all()
+            events = Event.objects.all()
 
-        team = Team.objects.get(pk=team_id)
-        employees = team.employees.all()
-        athletes = team.athletes.all()
-        scholarships = Scholarship.objects.filter(athlete__in=athletes)
-        incomes = Income.objects.all()
-        equipments = Equipment.objects.all()
-        events = Event.objects.all()
 
+      
         return render(request = request,
                     template_name = 'report.html',
                     context = { 'team': team,
@@ -62,9 +68,8 @@ class Report(LoginRequiredMixin, View):
                                 'scholarships': scholarships,
                                 'incomes': incomes,
                                 'equipments': equipments,
-                                'events': events
-                                , 'user_message': user_message
-
+                                'events': events,
+                                'user_message': user_message
                                 })
 
 
