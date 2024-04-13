@@ -9,8 +9,8 @@ Edit Equipment
         <div class="col-md-6 offset-md-3">
             <h1 class="mt-4">{{ object.name }}</h1>
             <p>Date: {{ object.date }}</p>
-            <p>Income: {{ object.income }}</p>
-            <p>Expenses: {{ object.expenses }}</p>
+            <p>Income: ${{ object.income }}</p>
+            <p>Expenses: ${{ object.expenses }}</p>
             <p>Opponent: {{ object.opponent }}</p>
             <br>
             <a href="{% url 'event-edit' object.pk %}" class="btn btn-primary">Edit Event</a>
