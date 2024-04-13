@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}
 Financial Report{% endblock %}
-
+// not sure where to put the error message
 {% block content %}
 <div class="container">
     <div class="row">
@@ -45,21 +45,6 @@ Financial Report{% endblock %}
         <li>Equipment - {{ equipment.type }}: ${{ equipment.annual_cost }}</li>
     {% endif %}
 {% endfor %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <a href="/athletics/home/" class="btn btn-secondary">Return Home</a>
         </div>

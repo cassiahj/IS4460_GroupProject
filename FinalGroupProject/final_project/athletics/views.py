@@ -63,15 +63,9 @@ class Report(LoginRequiredMixin, View):
                                 'incomes': incomes,
                                 'equipments': equipments,
                                 'events': events
+                                , 'user_message': user_message
 
                                 })
-    
-
-
-
-
-
-
 
 
 class TeamList(View):
