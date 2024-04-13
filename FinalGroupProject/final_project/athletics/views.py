@@ -341,29 +341,29 @@ class IncomeEdit(UpdateView):
     success_url = reverse_lazy('income-list')
 # 
 
-class RankAdd(CreateView):
-    model = Rank
-    form_class = RankForm
-    template_name = 'rank_add.html'
-    success_url = '/athletics/rank/list/'
+# class RankAdd(CreateView):
+#     model = Rank
+#     form_class = RankForm
+#     template_name = 'rank_add.html'
+#     success_url = '/athletics/rank/list/'
 
-class RankList(ListView):
-    model = Income
-    template_name = 'rank_list.html'
-    context_object_name = 'ranks'
+# class RankList(ListView):
+#     model = Rank
+#     template_name = 'rank_list.html'
+#     context_object_name = 'ranks'
 
-class RankDelete(DeleteView):
-    model = Rank
-    success_url = reverse_lazy('rank-list')
-    template_name = 'rank_delete.html'
+# class RankDelete(DeleteView):
+#     model = Rank
+#     success_url = reverse_lazy('rank-list')
+#     template_name = 'rank_delete.html'
 
-class RankDetails(DetailView):
-    model = Rank
-    template_name = 'rank_details.html'
+# class RankDetails(DetailView):
+#     model = Rank
+#     template_name = 'rank_details.html'
 
-class RankEdit(UpdateView):
-    model = Rank
-    form_class = RankForm
-    template_name = 'rank_edit.html'
+# class RankEdit(UpdateView):
+#     model = Rank
+#     form_class = RankForm
+#     template_name = 'rank_edit.html'
     success_url = reverse_lazy('rank-list')
 

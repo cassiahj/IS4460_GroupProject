@@ -82,12 +82,12 @@ class Scholarship(models.Model):
     donor=models.CharField(max_length=255)
     type = models.CharField(max_length=15, choices=scholarship_type_choices)
 
-# class Rank(models.Model):
-#     rank_id=models.IntegerField()
-#     team_id=models.IntegerField()
-#     team_name=models.CharField(max_length=255)
-#     rank=models.IntegerField()
-#     record=models.IntegerField()
+class Rank(models.Model):
+    rank_id=models.IntegerField()
+    team_id=models.IntegerField()
+    team_name=models.CharField(max_length=255)
+    rank=models.IntegerField()
+    record=models.IntegerField()
 
 class Income(models.Model):
     income_type_choices = [
