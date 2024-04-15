@@ -4,16 +4,9 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
-from rest_framework import generics
-from django.views import generic
+
 from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-# from django.views.generic.edit import DeleteView
-# from django.views.generic import DetailView
-# from django.views.generic.edit import CreateView
-# from django.views.generic import ListView
-# from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 
 
@@ -54,9 +47,9 @@ class Report(LoginRequiredMixin, View):
             employees = team.employees.all()
             athletes = team.athletes.all()
             scholarships = Scholarship.objects.filter(athlete__in=athletes)
-            incomes = Income.objects.all()
-            equipments = Equipment.objects.all()
-            events = Event.objects.all()
+            incomes = Income.objects.filter(team=team)
+            equipments = Equipment.objects.filter(team=team)
+            events = Event.objects.filter(team=team)
 
 
       
@@ -365,5 +358,5 @@ class IncomeEdit(UpdateView):
 #     model = Rank
 #     form_class = RankForm
 #     template_name = 'rank_edit.html'
-    success_url = reverse_lazy('rank-list')
+    # success_url = reverse_lazy('rank-list')
 
